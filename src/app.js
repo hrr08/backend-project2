@@ -1,9 +1,11 @@
-var express = require('express');
+import express from 'express';
 
-var app = express();
-var port = process.env.port || 8080;
+export const app = express();
 
-var controller = require('./src/controller.js');
+//var app = express();
+//module.exports = app;
+
+var controller = require('./controller.js');
 
 app.get('/api/:content', function(req, res){
     var content = req.params.content;
@@ -17,6 +19,3 @@ app.get('/api/:content', function(req, res){
     //res.send(content);
 });
 
-app.listen(port, function(){
-    console.log("Listening to port " + port + "!");
-})
